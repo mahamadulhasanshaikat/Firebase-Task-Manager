@@ -13,10 +13,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  // Background FCM handler
   FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
-
-  // Local notifications initialize
   await NotificationService().initialize();
 
   runApp(const MyApp());

@@ -50,9 +50,9 @@ class AuthViewModel extends ChangeNotifier {
     _setLoading(true);
     _errorMessage = null;
     try {
-      final res = await _authService.signInWithGoogle();
+      final credential = await _authService.signInWithGoogle();
       _setLoading(false);
-      return res != null;
+      return credential != null;
     } catch (e) {
       _errorMessage = e.toString();
       _setLoading(false);
@@ -61,7 +61,7 @@ class AuthViewModel extends ChangeNotifier {
   }
 
   Future<void> sendPasswordReset(String email) async {
-    await _authService.sendPasswordResetEmail(email);
+    await _authService.sendPasswordReset(email);
   }
 
   Future<void> signOut() async {

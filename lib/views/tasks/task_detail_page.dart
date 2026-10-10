@@ -15,7 +15,8 @@ class TaskDetailPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC),
       appBar: AppBar(
-        title: const Text('Task Details', style: TextStyle(color: Color(0xFF0F172A))),
+        title: const Text('Task Details',
+            style: TextStyle(color: Color(0xFF0F172A))),
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -50,18 +51,23 @@ class TaskDetailPage extends StatelessWidget {
                   children: [
                     Text(
                       task.title,
-                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      task.description.isEmpty ? 'No notes added.' : task.description,
-                      style: const TextStyle(fontSize: 14, color: Color(0xFF64748B)),
+                      task.description.isEmpty
+                          ? 'No notes added.'
+                          : task.description,
+                      style: const TextStyle(
+                          fontSize: 14, color: Color(0xFF64748B)),
                     ),
                     const Divider(height: 28),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text('Due Date:', style: TextStyle(color: Color(0xFF94A3B8))),
+                        const Text('Due Date:',
+                            style: TextStyle(color: Color(0xFF94A3B8))),
                         Text(DateFormat('dd MMMM yyyy').format(task.dueDate),
                             style: const TextStyle(fontWeight: FontWeight.w600)),
                       ],
@@ -70,18 +76,23 @@ class TaskDetailPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text('Course Bucket:', style: TextStyle(color: Color(0xFF94A3B8))),
-                        Text(task.courseBucket, style: const TextStyle(fontWeight: FontWeight.w600)),
+                        const Text('Course Bucket:',
+                            style: TextStyle(color: Color(0xFF94A3B8))),
+                        Text(task.courseBucket,
+                            style: const TextStyle(fontWeight: FontWeight.w600)),
                       ],
                     ),
                     const SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text('Priority:', style: TextStyle(color: Color(0xFF94A3B8))),
+                        const Text('Priority:',
+                            style: TextStyle(color: Color(0xFF94A3B8))),
                         Text(
                           task.priority.name.toUpperCase(),
-                          style: const TextStyle(fontWeight: FontWeight.bold, color: Color(0xFFEF4444)),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFFEF4444)),
                         ),
                       ],
                     ),
@@ -89,12 +100,15 @@ class TaskDetailPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text('Status:', style: TextStyle(color: Color(0xFF94A3B8))),
+                        const Text('Status:',
+                            style: TextStyle(color: Color(0xFF94A3B8))),
                         Text(
                           task.isCompleted ? 'Completed' : 'Pending',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: task.isCompleted ? const Color(0xFF10B981) : const Color(0xFFF59E0B),
+                            color: task.isCompleted
+                                ? const Color(0xFF10B981)
+                                : const Color(0xFFF59E0B),
                           ),
                         ),
                       ],

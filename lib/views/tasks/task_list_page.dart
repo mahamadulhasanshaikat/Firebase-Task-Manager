@@ -41,7 +41,8 @@ class _TaskListPageState extends State<TaskListPage> {
           );
         },
         icon: const Icon(Icons.add, size: 18),
-        label: const Text('New Task', style: TextStyle(fontWeight: FontWeight.w600)),
+        label: const Text('New Task',
+            style: TextStyle(fontWeight: FontWeight.w600)),
         backgroundColor: const Color(0xFF0F172A),
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
@@ -50,7 +51,6 @@ class _TaskListPageState extends State<TaskListPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Top Header
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 16, 20, 10),
               child: Row(
@@ -71,14 +71,16 @@ class _TaskListPageState extends State<TaskListPage> {
                           ),
                           const SizedBox(width: 8),
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 2),
                             decoration: BoxDecoration(
                               color: const Color(0xFFE2E8F0),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Text(
                               '${taskVM.totalCount} total',
-                              style: const TextStyle(fontSize: 11, color: Color(0xFF475569)),
+                              style: const TextStyle(
+                                  fontSize: 11, color: Color(0xFF475569)),
                             ),
                           ),
                         ],
@@ -86,7 +88,8 @@ class _TaskListPageState extends State<TaskListPage> {
                       const SizedBox(height: 2),
                       Text(
                         'Today • ${DateFormat('EEEE, MMM d').format(DateTime.now())}',
-                        style: const TextStyle(fontSize: 12, color: Color(0xFF94A3B8)),
+                        style: const TextStyle(
+                            fontSize: 12, color: Color(0xFF94A3B8)),
                       ),
                     ],
                   ),
@@ -97,7 +100,8 @@ class _TaskListPageState extends State<TaskListPage> {
                           _isSearchVisible ? Icons.close : Icons.search,
                           color: const Color(0xFF64748B),
                         ),
-                        onPressed: () => setState(() => _isSearchVisible = !_isSearchVisible),
+                        onPressed: () => setState(
+                            () => _isSearchVisible = !_isSearchVisible),
                       ),
                       IconButton(
                         icon: const Icon(Icons.logout, color: Color(0xFF64748B)),
@@ -106,7 +110,8 @@ class _TaskListPageState extends State<TaskListPage> {
                           if (context.mounted) {
                             Navigator.pushReplacement(
                               context,
-                              MaterialPageRoute(builder: (_) => const LoginPage()),
+                              MaterialPageRoute(
+                                  builder: (_) => const LoginPage()),
                             );
                           }
                         },
@@ -116,11 +121,10 @@ class _TaskListPageState extends State<TaskListPage> {
                 ],
               ),
             ),
-
-            // Search Bar
             if (_isSearchVisible)
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Search tasks...',
@@ -136,10 +140,9 @@ class _TaskListPageState extends State<TaskListPage> {
                   onChanged: (val) => taskVM.setSearchQuery(val),
                 ),
               ),
-
-            // Filter Tabs with Badges
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Row(
                 children: [
                   _buildFilterTab('All', taskVM.totalCount, taskVM),
@@ -150,8 +153,6 @@ class _TaskListPageState extends State<TaskListPage> {
                 ],
               ),
             ),
-
-            // Task List View
             Expanded(
               child: taskVM.isLoading
                   ? const Center(child: CircularProgressIndicator())
@@ -203,9 +204,12 @@ class _TaskListPageState extends State<TaskListPage> {
             ),
             const SizedBox(width: 6),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
               decoration: BoxDecoration(
-                color: isSelected ? Colors.white.withOpacity(0.2) : const Color(0xFFF1F5F9),
+                color: isSelected
+                    ? Colors.white.withOpacity(0.2)
+                    : const Color(0xFFF1F5F9),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(
@@ -265,10 +269,14 @@ class _TaskListPageState extends State<TaskListPage> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: task.isCompleted ? const Color(0xFF4F46E5) : const Color(0xFFCBD5E1),
+                      color: task.isCompleted
+                          ? const Color(0xFF4F46E5)
+                          : const Color(0xFFCBD5E1),
                       width: 2,
                     ),
-                    color: task.isCompleted ? const Color(0xFF4F46E5) : Colors.transparent,
+                    color: task.isCompleted
+                        ? const Color(0xFF4F46E5)
+                        : Colors.transparent,
                   ),
                   child: task.isCompleted
                       ? const Icon(Icons.check, size: 14, color: Colors.white)
@@ -277,7 +285,8 @@ class _TaskListPageState extends State<TaskListPage> {
               ),
               const SizedBox(width: 10),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
                   color: priorityColor.withOpacity(0.12),
                   borderRadius: BorderRadius.circular(12),
@@ -288,7 +297,8 @@ class _TaskListPageState extends State<TaskListPage> {
                     Container(
                       width: 6,
                       height: 6,
-                      decoration: BoxDecoration(color: priorityColor, shape: BoxShape.circle),
+                      decoration: BoxDecoration(
+                          color: priorityColor, shape: BoxShape.circle),
                     ),
                     const SizedBox(width: 4),
                     Text(
@@ -305,7 +315,8 @@ class _TaskListPageState extends State<TaskListPage> {
               if (task.isCompleted) ...[
                 const SizedBox(width: 6),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                   decoration: BoxDecoration(
                     color: const Color(0xFFECFDF5),
                     borderRadius: BorderRadius.circular(12),
@@ -328,7 +339,8 @@ class _TaskListPageState extends State<TaskListPage> {
                     MaterialPageRoute(builder: (_) => EditTaskPage(task: task)),
                   );
                 },
-                child: const Icon(Icons.edit_outlined, size: 18, color: Color(0xFF94A3B8)),
+                child: const Icon(Icons.edit_outlined,
+                    size: 18, color: Color(0xFF94A3B8)),
               ),
               const SizedBox(width: 10),
               InkWell(
@@ -338,7 +350,8 @@ class _TaskListPageState extends State<TaskListPage> {
                     builder: (_) => DeleteConfirmationDialog(task: task),
                   );
                 },
-                child: const Icon(Icons.delete_outline, size: 18, color: Color(0xFF94A3B8)),
+                child: const Icon(Icons.delete_outline,
+                    size: 18, color: Color(0xFF94A3B8)),
               ),
             ],
           ),
@@ -358,24 +371,29 @@ class _TaskListPageState extends State<TaskListPage> {
               task.description,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 12, color: Color(0xFF64748B), height: 1.3),
+              style: const TextStyle(
+                  fontSize: 12, color: Color(0xFF64748B), height: 1.3),
             ),
           ],
           const SizedBox(height: 12),
           Row(
             children: [
-              const Icon(Icons.calendar_today_outlined, size: 12, color: Color(0xFF94A3B8)),
+              const Icon(Icons.calendar_today_outlined,
+                  size: 12, color: Color(0xFF94A3B8)),
               const SizedBox(width: 4),
               Text(
                 'Due ${DateFormat('MMM d').format(task.dueDate)}',
-                style: const TextStyle(fontSize: 11, color: Color(0xFF94A3B8)),
+                style: const TextStyle(
+                    fontSize: 11, color: Color(0xFF94A3B8)),
               ),
               const SizedBox(width: 12),
-              const Icon(Icons.access_time, size: 12, color: Color(0xFF94A3B8)),
+              const Icon(Icons.access_time,
+                  size: 12, color: Color(0xFF94A3B8)),
               const SizedBox(width: 4),
               Text(
                 DateFormat('MMM d').format(task.createdAt),
-                style: const TextStyle(fontSize: 11, color: Color(0xFF94A3B8)),
+                style: const TextStyle(
+                    fontSize: 11, color: Color(0xFF94A3B8)),
               ),
             ],
           ),

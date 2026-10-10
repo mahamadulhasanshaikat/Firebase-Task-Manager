@@ -22,7 +22,7 @@ class NotificationService {
       AndroidNotificationChannel(
     'high_importance_channel',
     'High Priority Notifications',
-    description: 'Channel for urgent task updates',
+    description: 'Channel for high importance task reminders',
     importance: Importance.max,
     playSound: true,
   );
@@ -31,7 +31,7 @@ class NotificationService {
       AndroidNotificationChannel(
     'default_channel',
     'General Notifications',
-    description: 'Channel for standard tasks',
+    description: 'Channel for general task updates',
     importance: Importance.defaultImportance,
   );
 
@@ -40,7 +40,8 @@ class NotificationService {
 
     const AndroidInitializationSettings androidSettings =
         AndroidInitializationSettings('@mipmap/ic_launcher');
-    const DarwinInitializationSettings iosSettings = DarwinInitializationSettings();
+    const DarwinInitializationSettings iosSettings =
+        DarwinInitializationSettings();
     const InitializationSettings initSettings = InitializationSettings(
       android: androidSettings,
       iOS: iosSettings,
@@ -65,9 +66,9 @@ class NotificationService {
     debugPrint(token);
     debugPrint("===========================================");
 
-    // Foreground listener
+    // Foreground listener -> Show local notification
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      debugPrint("Foreground message received: ${message.notification?.title}");
+      debugPrint("Foreground message: ${message.notification?.title}");
       _showLocalNotification(message);
     });
 
@@ -84,7 +85,7 @@ class NotificationService {
     if (initialMessage != null) {
       final taskId = initialMessage.data['taskId'];
       if (taskId != null) {
-        Future.delayed(const Duration(milliseconds: 1200), () {
+        Future.delayed(const Duration(milliseconds: 1000), () {
           _navigateToTaskDetailPage(taskId);
         });
       }
@@ -116,7 +117,7 @@ class NotificationService {
     await _localNotifications.show(
       notification.hashCode,
       notification?.title ?? message.data['title'] ?? 'Task Alert',
-      notification?.body ?? message.data['body'] ?? 'You have a new task update.',
+      notification?.body ?? message.data['body'] ?? 'You have a new update.',
       platformDetails,
       payload: taskId,
     );

@@ -2,6 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 enum TaskPriority { low, medium, high }
 
+extension StringCasingExtension on String {
+  String capitalize() =>
+      isEmpty ? '' : '${this[0].toUpperCase()}${substring(1).toLowerCase()}';
+}
+
 class TaskModel {
   final String id;
   final String title;
@@ -20,7 +25,7 @@ class TaskModel {
     required this.priority,
     required this.isCompleted,
     required this.createdAt,
-    this.courseBucket = 'General',
+    this.courseBucket = 'CS 421',
   });
 
   Map<String, dynamic> toMap() {
@@ -48,7 +53,7 @@ class TaskModel {
       ),
       isCompleted: data['isCompleted'] ?? false,
       createdAt: (data['createdAt'] as Timestamp).toDate(),
-      courseBucket: data['courseBucket'] ?? 'General',
+      courseBucket: data['courseBucket'] ?? 'CS 421',
     );
   }
 

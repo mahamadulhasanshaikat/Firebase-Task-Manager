@@ -40,7 +40,8 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: const Text('Create Account', style: TextStyle(color: Color(0xFF0F172A))),
+        title: const Text('Create Account',
+            style: TextStyle(color: Color(0xFF0F172A))),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Color(0xFF0F172A)),
           onPressed: () => Navigator.pop(context),
@@ -59,7 +60,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   labelText: 'Email Address',
                   filled: true,
                   fillColor: const Color(0xFFF8FAFC),
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
                 ),
                 validator: (v) => v!.trim().isEmpty ? 'Enter email' : null,
               ),
@@ -71,9 +73,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   labelText: 'Password',
                   filled: true,
                   fillColor: const Color(0xFFF8FAFC),
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
                 ),
-                validator: (v) => v!.length < 6 ? 'Password must be 6+ characters' : null,
+                validator: (v) =>
+                    v!.length < 6 ? 'Password must be 6+ characters' : null,
               ),
               const SizedBox(height: 24),
               ElevatedButton(
@@ -82,11 +86,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   backgroundColor: const Color(0xFF4F46E5),
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                 ),
                 child: authVM.isLoading
                     ? const CircularProgressIndicator(color: Colors.white)
-                    : const Text('Create Account', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
+                    : const Text('Create Account',
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600)),
               ),
             ],
           ),

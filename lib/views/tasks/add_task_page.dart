@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import '../../models/task_model.dart';
 import '../../viewmodels/task_viewmodel.dart';
-import 'edit_task_page.dart';
 
 class AddTaskPage extends StatefulWidget {
   const AddTaskPage({super.key});
@@ -40,7 +39,10 @@ class _AddTaskPageState extends State<AddTaskPage> {
         elevation: 0,
         title: const Text(
           'New Task',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF0F172A)),
+          style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF0F172A)),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Color(0xFF0F172A)),
@@ -54,7 +56,10 @@ class _AddTaskPageState extends State<AddTaskPage> {
           children: [
             const Text(
               'TITLE',
-              style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF64748B)),
+              style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF64748B)),
             ),
             const SizedBox(height: 6),
             TextField(
@@ -76,7 +81,10 @@ class _AddTaskPageState extends State<AddTaskPage> {
             const SizedBox(height: 20),
             const Text(
               'NOTES',
-              style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF64748B)),
+              style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF64748B)),
             ),
             const SizedBox(height: 6),
             TextField(
@@ -99,7 +107,10 @@ class _AddTaskPageState extends State<AddTaskPage> {
             const SizedBox(height: 20),
             const Text(
               'DUE DATE',
-              style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF64748B)),
+              style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF64748B)),
             ),
             const SizedBox(height: 6),
             GestureDetector(
@@ -113,7 +124,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 if (picked != null) setState(() => _dueDate = picked);
               },
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 decoration: BoxDecoration(
                   color: const Color(0xFFF8FAFC),
                   borderRadius: BorderRadius.circular(10),
@@ -124,9 +136,11 @@ class _AddTaskPageState extends State<AddTaskPage> {
                   children: [
                     Text(
                       DateFormat('MM/dd/yyyy').format(_dueDate),
-                      style: const TextStyle(fontSize: 14, color: Color(0xFF0F172A)),
+                      style: const TextStyle(
+                          fontSize: 14, color: Color(0xFF0F172A)),
                     ),
-                    const Icon(Icons.calendar_today_outlined, size: 18, color: Color(0xFF64748B)),
+                    const Icon(Icons.calendar_today_outlined,
+                        size: 18, color: Color(0xFF64748B)),
                   ],
                 ),
               ),
@@ -134,7 +148,10 @@ class _AddTaskPageState extends State<AddTaskPage> {
             const SizedBox(height: 20),
             const Text(
               'PRIORITY',
-              style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF64748B)),
+              style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF64748B)),
             ),
             const SizedBox(height: 10),
             Row(
@@ -153,14 +170,18 @@ class _AddTaskPageState extends State<AddTaskPage> {
                 backgroundColor: const Color(0xFF4F46E5),
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 14),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
               ),
-              child: const Text('Save Task', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+              child: const Text('Save Task',
+                  style:
+                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 10),
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel', style: TextStyle(color: Color(0xFF94A3B8))),
+              child: const Text('Cancel',
+                  style: TextStyle(color: Color(0xFF94A3B8))),
             ),
           ],
         ),
@@ -176,7 +197,8 @@ class _AddTaskPageState extends State<AddTaskPage> {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 10),
           decoration: BoxDecoration(
-            color: isSelected ? color.withOpacity(0.12) : const Color(0xFFF8FAFC),
+            color:
+                isSelected ? color.withOpacity(0.12) : const Color(0xFFF8FAFC),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color: isSelected ? color : const Color(0xFFE2E8F0),

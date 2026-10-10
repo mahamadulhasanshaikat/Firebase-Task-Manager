@@ -15,10 +15,10 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _handleSplashLogic();
+    _handleSplashNavigation();
   }
 
-  void _handleSplashLogic() async {
+  void _handleSplashNavigation() async {
     await Future.delayed(const Duration(seconds: 2));
     if (!mounted) return;
     final authVM = Provider.of<AuthViewModel>(context, listen: false);
@@ -50,11 +50,11 @@ class _SplashPageState extends State<SplashPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    width: 80,
-                    height: 80,
+                    width: 76,
+                    height: 76,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(18),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.06),
@@ -67,10 +67,10 @@ class _SplashPageState extends State<SplashPage> {
                       child: Stack(
                         alignment: Alignment.bottomRight,
                         children: [
-                          const FlutterLogo(size: 44),
+                          const FlutterLogo(size: 42),
                           Container(
-                            width: 14,
-                            height: 14,
+                            width: 13,
+                            height: 13,
                             decoration: const BoxDecoration(
                               color: Color(0xFFF59E0B),
                               shape: BoxShape.circle,
@@ -109,7 +109,8 @@ class _SplashPageState extends State<SplashPage> {
                     height: 22,
                     child: CircularProgressIndicator(
                       strokeWidth: 2.2,
-                      valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF6366F1)),
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Color(0xFF6366F1)),
                     ),
                   ),
                   const SizedBox(height: 12),

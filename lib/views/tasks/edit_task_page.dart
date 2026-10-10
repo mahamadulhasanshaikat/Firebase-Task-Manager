@@ -4,11 +4,6 @@ import 'package:provider/provider.dart';
 import '../../models/task_model.dart';
 import '../../viewmodels/task_viewmodel.dart';
 
-extension StringCasingExtension on String {
-  String capitalize() =>
-      isEmpty ? '' : '${this[0].toUpperCase()}${substring(1).toLowerCase()}';
-}
-
 class EditTaskPage extends StatefulWidget {
   final TaskModel task;
   const EditTaskPage({super.key, required this.task});
@@ -136,7 +131,7 @@ class _EditTaskPageState extends State<EditTaskPage> {
         ],
       ),
       body: SingleChildScrollView(
-        padding:  EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -178,7 +173,8 @@ class _EditTaskPageState extends State<EditTaskPage> {
                 filled: true,
                 fillColor: const Color(0xFFF8FAFC),
                 suffixIcon: IconButton(
-                  icon: const Icon(Icons.close, size: 16, color: Color(0xFF94A3B8)),
+                  icon:
+                      const Icon(Icons.close, size: 16, color: Color(0xFF94A3B8)),
                   onPressed: () => setState(() => _titleController.clear()),
                 ),
                 border: OutlineInputBorder(
@@ -314,7 +310,8 @@ class _EditTaskPageState extends State<EditTaskPage> {
                                       ),
                                     ),
                                     const SizedBox(width: 6),
-                                    Text(val, style: const TextStyle(fontSize: 13)),
+                                    Text(val,
+                                        style: const TextStyle(fontSize: 13)),
                                   ],
                                 ),
                               );
@@ -357,7 +354,8 @@ class _EditTaskPageState extends State<EditTaskPage> {
                       child: Container(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         decoration: BoxDecoration(
-                          color: isSelected ? Colors.white : Colors.transparent,
+                          color:
+                              isSelected ? Colors.white : Colors.transparent,
                           borderRadius: BorderRadius.circular(8),
                           boxShadow: isSelected
                               ? [
@@ -384,7 +382,7 @@ class _EditTaskPageState extends State<EditTaskPage> {
                         ),
                       ),
                     ),
-                  );
+                    );
                   }).toList(),
                 ),
               ),
