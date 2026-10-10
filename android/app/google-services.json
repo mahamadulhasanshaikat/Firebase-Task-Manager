@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "624944520631",
+    "project_id": "fir-task-manager-a8433",
+    "storage_bucket": "fir-task-manager-a8433.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:624944520631:android:a74f2d31917f22efe25c32",
+        "android_client_info": {
+          "package_name": "com.example.firebase_push_and_local_notification"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU36jtZU7UDkZKD6C1elDQ0ByuSEvdCGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
